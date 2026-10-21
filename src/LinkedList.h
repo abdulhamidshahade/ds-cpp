@@ -63,4 +63,16 @@ public:
 		current->next = newNode;
 		newNode->next = nullptr;
 	}
+
+	bool isFound(int data) {
+		Node* current = head;
+
+		while (current != nullptr) {
+			if (current->data = data) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 };
