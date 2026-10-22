@@ -75,4 +75,38 @@ public:
 
 		return false;
 	}
+
+	int count() {
+		int count = 0;
+
+		Node* current = head;
+
+		while (current != nullptr) {
+			++count;
+			current = current->next;
+		}
+
+		return count;
+	}
+
+	int countOfItem(int item) {
+
+		if (!isFound(item)) {
+			return 0;
+		}
+
+		int count = 0;
+
+		Node* current = head;
+
+		while (current != nullptr) {
+			if (current->data == item) {
+				++count;
+			}
+
+			current = current->next;
+		}
+
+		return count;
+	}
 };
