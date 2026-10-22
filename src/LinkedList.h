@@ -56,6 +56,11 @@ public:
 		Node* current = head;
 		Node* newNode = new Node{ data };
 
+		if (isEmpty()) {
+			insertAtBegin(data);
+			return;
+		}
+
 		while (current->next != nullptr) {
 			current = current->next;
 		}
@@ -108,5 +113,24 @@ public:
 		}
 
 		return count;
+	}
+
+	void insertBeforeItem(int data, int item) {
+		if (!isFound(item)) {
+			cout << "\n-->The item is not found!\n";
+		}
+		if (count() == 1) {
+			insertAtBegin(data);
+			return;
+		}
+		Node* newNode = new Node{ data };
+		Node* current = head;
+
+		while (current->next->data != item) {
+			current = current->next;
+		}
+
+		newNode->next = current->next;
+		current->next = newNode;
 	}
 };
