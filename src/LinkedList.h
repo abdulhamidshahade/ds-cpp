@@ -24,7 +24,7 @@ private:
 	}
 
 public:
-	void Traverse() {
+	void traverse() {
 		if (isEmpty()) {
 			cout << "\n--> LinkedList is empty.\n";
 		}
@@ -42,6 +42,7 @@ public:
 	void insertAtBegin(int data) {
 
 		Node* newNode = new Node{ data };
+
 		if (isEmpty()) {
 			head = newNode;
 			newNode->next = nullptr;
@@ -73,9 +74,11 @@ public:
 		Node* current = head;
 
 		while (current != nullptr) {
-			if (current->data = data) {
+			if (current->data == data) {
 				return true;
 			}
+
+			current = current->next;
 		}
 
 		return false;
@@ -95,6 +98,10 @@ public:
 	}
 
 	int countOfItem(int item) {
+
+		if (isEmpty()) {
+			return 0;
+		}
 
 		if (!isFound(item)) {
 			return 0;
