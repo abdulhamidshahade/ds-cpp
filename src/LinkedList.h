@@ -140,4 +140,16 @@ public:
 		newNode->next = current->next;
 		current->next = newNode;
 	}
+
+	void deleteAtBegin() {
+		Node* current = head;
+
+		if (isEmpty()) {
+			cout << "\nThe linkedlist is empty!\n";
+		}
+
+		head = current->next;
+
+		delete current;
+	}
 };
