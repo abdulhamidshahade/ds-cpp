@@ -9,6 +9,7 @@ public:
 	Node* next;
 };
 
+template <typename T>
 class LinkedList {
 private:
 	Node* head;
@@ -39,7 +40,7 @@ public:
 		cout << "\n";
 	}
 
-	void insertAtBegin(int data) {
+	void insertAtBegin(T data) {
 
 		Node* newNode = new Node{ data };
 
@@ -53,7 +54,7 @@ public:
 		}
 	}
 
-	void insertAtEnd(int data) {
+	void insertAtEnd(T data) {
 		Node* current = head;
 		Node* newNode = new Node{ data };
 
@@ -70,7 +71,7 @@ public:
 		newNode->next = nullptr;
 	}
 
-	bool isFound(int data) {
+	bool isFound(T data) {
 		Node* current = head;
 
 		while (current != nullptr) {
@@ -97,7 +98,7 @@ public:
 		return count;
 	}
 
-	int countOfItem(int item) {
+	int countOfItem(T item) {
 
 		if (isEmpty()) {
 			return 0;
@@ -122,7 +123,7 @@ public:
 		return count;
 	}
 
-	void insertBeforeItem(int data, int item) {
+	void insertBeforeItem(T data, T item) {
 		if (!isFound(item)) {
 			cout << "\n-->The item is not found!\n";
 		}
