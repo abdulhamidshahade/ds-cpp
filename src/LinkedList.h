@@ -147,10 +147,39 @@ public:
 
 		if (isEmpty()) {
 			cout << "\nThe linkedlist is empty!\n";
+			return;
 		}
 
 		head = current->next;
 
 		delete current;
+	}
+
+	void deleteBeforeItem(int item) {
+		if (isEmpty()) {
+			cout << "\nLinkedlist is empty!\n";
+			return;
+		}
+		if (!isFound(item)) {
+			cout << "\nThe item is not found\n";
+			return;
+		}
+		if (count() == 1) {
+			cout << "\nYou need to have at least one 2 items to delete before the item that you want!\n";
+			return;
+		}
+
+		Node* current = head;
+		Node* toDelete = head;
+
+		while (current->next->next->data != item) {
+			current = current->next;
+		}
+
+		toDelete = current->next;
+
+		current->next = current->next->next;
+
+		delete toDelete;
 	}
 };
